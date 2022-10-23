@@ -88,7 +88,7 @@ doubletFinder_v3 <- function(seu, PCs, pN = 0.25, pK, nExp, reuse.pANN = FALSE, 
       seu_wdoublets <- CreateSeuratObject(counts = data_wdoublets)
 
       print("Running SCTransform...")
-      seu_wdoublets <- SCTransform(seu_wdoublets)
+      seu_wdoublets <- SCTransform(seu_wdoublets, n_genes = 3000, vst.flavor = 'v2')
 
       print("Running PCA...")
       seu_wdoublets <- RunPCA(seu_wdoublets, npcs = length(PCs))
