@@ -1,4 +1,4 @@
-doubletFinder_v3 <- function(seu, PCs, pN = 0.25, pK, nExp, reuse.pANN = FALSE, sct = FALSE, annotations = NULL, sct.n_genes, sct.ncells) {
+doubletFinder_v3 <- function(seu, PCs, pN = 0.25, pK, nExp, reuse.pANN = FALSE, sct = FALSE, annotations = NULL, sct.ncells = 5000, sct.n_genes = 3000) {
   require(Seurat); require(fields); require(KernSmooth)
 
   ## Generate new list of doublet classificatons from existing pANN vector to save time
