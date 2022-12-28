@@ -1,4 +1,4 @@
-doubletFinder_v3 <- function(seu, PCs, pN = 0.25, pK, nExp, reuse.pANN = FALSE, sct = FALSE, annotations = NULL) {
+doubletFinder_v3 <- function(seu, PCs, pN = 0.25, pK, nExp, reuse.pANN = FALSE, sct = FALSE, annotations = NULL, sct.n_genes, sct.ncells) {
   require(Seurat); require(fields); require(KernSmooth)
 
   ## Generate new list of doublet classificatons from existing pANN vector to save time
@@ -88,7 +88,7 @@ doubletFinder_v3 <- function(seu, PCs, pN = 0.25, pK, nExp, reuse.pANN = FALSE, 
       seu_wdoublets <- CreateSeuratObject(counts = data_wdoublets)
 
       print("Running SCTransform...")
-      seu_wdoublets <- SCTransform(seu_wdoublets, n_genes = 3000, vst.flavor = 'v2')
+      seu_wdoublets <- SCTransform(seu_wdoublets, n_genes = sct.n_genes, ncells = sct.ncells, vst.flavor = 'v2')
 
       print("Running PCA...")
       seu_wdoublets <- RunPCA(seu_wdoublets, npcs = length(PCs))
