@@ -1,4 +1,4 @@
-parallel_paramSweep_v3 <- function(n, n.real.cells, real.cells, pK, pN, data, orig.commands, PCs, sct, sct.n_genes, sct.ncells)  {
+parallel_paramSweep_v3 <- function(n, n.real.cells, real.cells, pK, pN, data, orig.commands, PCs, sct, sct.ncells, sct.n_genes)  {
 
   sweep.res.list = list()
   list.ind = 0
